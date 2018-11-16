@@ -18,6 +18,7 @@ def nuke(bot, update):
     if not m.reply_to_message:
         text = "You need to reply to a message."
         bot.send_message(chat_id=m.chat_id, text=text)
+        return
     user = bot.get_chat_member(m.chat.id, m.from_user.id)
     if not user.can_delete_messages and user.status != "creator":
         text = ('Only admins with "Delete Messages Permission" are allowed '
